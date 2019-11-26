@@ -1,4 +1,5 @@
-﻿Add-Type -AssemblyName System.Windows.Forms
+#----------Start: Setting up the necessary Buttons/Labels/TextBoxes--------------------
+Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
 $Form                            = New-Object system.Windows.Forms.Form
@@ -88,7 +89,7 @@ $Button2.ForeColor                = "#ffffff"
 $Button2.visible                 = $false
 
 $Form.controls.AddRange(@($TextBox1,$Button1,$Button2,$TextBox2,$Label1,$TextBox3,$Label2,$TextBox4,$Label3))
-
+#----------End: Setting up the necessary Buttons/Labels/TextBoxes--------------------
 
 function Get-ExchangeStatus {
     param([string]$Username)
