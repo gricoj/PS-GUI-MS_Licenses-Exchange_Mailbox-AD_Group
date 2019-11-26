@@ -120,8 +120,6 @@ function In-OnPremGroup {
     return $InGroup
 }
 
-    
-
 $TextBox1.Add_Click({ $TextBox1.Clear()})
 
 $Button1.Add_Click({
@@ -157,5 +155,4 @@ $Button2.Add_Click({
     $Button2.visible = $false
 })
     
-
 $Form.ShowDialog()
