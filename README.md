@@ -11,13 +11,37 @@ The GUI's purposes:
 - To show the user's licenses
 - To add/remove a user from the *MDM_OnPremExchange* group
 
-### Functions
+## Functions
 
-## Get-ExchangeStatus
+### Get-ExchangeStatus
 ```
-$Site = ((Get-ADUser $Username -Properties *).msExchRecipientTypeDetails)
-if($Site -eq 2147483648){ return "O365" }
-elseif($Site -eq 1){ return "On Premise" }
+function Get-ExchangeStatus {
+    param([string]$Username)
+    $Site = ((Get-ADUser $Username -Properties *).msExchRecipientTypeDetails)
+    if($Site -eq 2147483648){ return "O365" }
+    elseif($Site -eq 1){ return "On Premise" }
+    else { return "Error" }
+}
 ```
-
-This will return
+### Get-UserLicenseDetail
+```
+function Get-UserLicenseDetail {
+    param([string]$UserPrincipalName)
+    $SkuIDs = (Get-AzureADUser -ObjectId $UserPrincipalName | Select -ExpandProperty AssignedLicenses).SkuId
+    $LicenseName = @()
+    foreach($SkuID in $SkuIDs){
+        [array]$LicenseName += (Get-AzureADSubscribedSku | Where {$_.SkuId -eq $SkuID}).SkuPartNumber
+    }
+    Return $LicenseName
+}
+```
+### In-OnPremGroup
+```
+function In-OnPremGroup {
+    param([string]$UserPrincipalName)
+    $Users = (Get-ADGroupMember -Identity MDM_OnPremExchange).SamAccountName
+    $InGroup = $false
+    if($Users -contains $UserPrincipalName){ $InGroup = $true }
+    return $InGroup
+}
+```
