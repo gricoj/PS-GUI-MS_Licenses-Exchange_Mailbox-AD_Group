@@ -30,7 +30,7 @@ function Get-UserLicenseDetail {
     $SkuIDs = (Get-AzureADUser -ObjectId $UserPrincipalName | Select -ExpandProperty AssignedLicenses).SkuId
     $LicenseName = @()
     foreach($SkuID in $SkuIDs){
-        [array]$LicenseName += (Get-AzureADSubscribedSku | Where {$_.SkuId -eq $SkuID}).SkuPartNumber
+        $LicenseName += (Get-AzureADSubscribedSku | Where {$_.SkuId -eq $SkuID}).SkuPartNumber
     }
     Return $LicenseName
 }
