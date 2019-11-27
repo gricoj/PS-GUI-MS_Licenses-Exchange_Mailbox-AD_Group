@@ -1,4 +1,3 @@
-#----------Start: Setting up the necessary Buttons/Labels/TextBoxes--------------------
 Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
@@ -89,7 +88,7 @@ $Button2.ForeColor                = "#ffffff"
 $Button2.visible                 = $false
 
 $Form.controls.AddRange(@($TextBox1,$Button1,$Button2,$TextBox2,$Label1,$TextBox3,$Label2,$TextBox4,$Label3))
-#----------End: Setting up the necessary Buttons/Labels/TextBoxes--------------------
+
 
 function Get-ExchangeStatus {
     param([string]$Username)
@@ -113,12 +112,14 @@ function Get-UserLicenseDetail {
 }
 
 function In-OnPremGroup {
-    param([string]$UserPrincipalName)
+    param([string]$Username)
     $Users = (Get-ADGroupMember -Identity MDM_OnPremExchange).SamAccountName
     $InGroup = $false
-    if($Users -contains $UserPrincipalName){ $InGroup = $true }
+    if($Users -contains $Username){ $InGroup = $true }
     return $InGroup
 }
+
+    
 
 $TextBox1.Add_Click({ $TextBox1.Clear()})
 
@@ -140,7 +141,7 @@ $Button1.Add_Click({
         $TextBox3.AppendText("`n")
     }
 
-    $TextBox4.Text = In-OnPremGroup -UserPrincipalName $UserName
+    $TextBox4.Text = In-OnPremGroup -Username $UserName
 
     if($TextBox4.Text -eq $false -and $TextBox2.Text -eq "On Premise" -and $TextBox3.lines -contains "EMS" ){$Button2.text = "Add"; $Button2.visible = $true; }
     elseif($TextBox4.Text -eq $true -and $TextBox2.Text -eq "O365"){ $Button2.text = "Remove"; $Button2.visible = $true;}
@@ -155,4 +156,5 @@ $Button2.Add_Click({
     $Button2.visible = $false
 })
     
+
 $Form.ShowDialog()
