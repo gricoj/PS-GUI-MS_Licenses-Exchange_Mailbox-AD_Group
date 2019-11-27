@@ -38,10 +38,10 @@ function Get-UserLicenseDetail {
 ### In-OnPremGroup
 ```
 function In-OnPremGroup {
-    param([string]$UserPrincipalName)
+    param([string]$Username)
     $Users = (Get-ADGroupMember -Identity MDM_OnPremExchange).SamAccountName
     $InGroup = $false
-    if($Users -contains $UserPrincipalName){ $InGroup = $true }
+    if($Users -contains $Username){ $InGroup = $true }
     return $InGroup
 }
 ```
