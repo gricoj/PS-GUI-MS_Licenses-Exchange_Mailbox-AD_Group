@@ -89,7 +89,6 @@ $Button2.visible                 = $false
 
 $Form.controls.AddRange(@($TextBox1,$Button1,$Button2,$TextBox2,$Label1,$TextBox3,$Label2,$TextBox4,$Label3))
 
-
 function Get-ExchangeStatus {
     param([string]$Username)
     $Site = ((Get-ADUser $Username -Properties *).msExchRecipientTypeDetails)
@@ -100,14 +99,11 @@ function Get-ExchangeStatus {
 
 function Get-UserLicenseDetail {
     param([string]$UserPrincipalName)
-    
     $SkuIDs = (Get-AzureADUser -ObjectId $UserPrincipalName | Select -ExpandProperty AssignedLicenses).SkuId
     $LicenseName = @()
-
     foreach($SkuID in $SkuIDs){
-        [array]$LicenseName += (Get-AzureADSubscribedSku | Where {$_.SkuId -eq $SkuID}).SkuPartNumber
+        $LicenseName += (Get-AzureADSubscribedSku | Where {$_.SkuId -eq $SkuID}).SkuPartNumber
     }
-    
     Return $LicenseName
 }
 
@@ -118,8 +114,6 @@ function In-OnPremGroup {
     if($Users -contains $Username){ $InGroup = $true }
     return $InGroup
 }
-
-    
 
 $TextBox1.Add_Click({ $TextBox1.Clear()})
 
@@ -154,7 +148,6 @@ $Button2.Add_Click({
     Start-Sleep -s 3
     $TextBox4.Text = In-OnPremGroup -UserPrincipalName $TextBox1.Text
     $Button2.visible = $false
-})
-    
+})   
 
 $Form.ShowDialog()
