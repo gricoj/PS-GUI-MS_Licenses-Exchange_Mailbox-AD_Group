@@ -11,6 +11,14 @@ The GUI's purposes:
 - To show the user's licenses
 - To add/remove a user from the *MDM_OnPremExchange* group
 
+## Requirements
+The GUI will require two PowerShell Modules: *ActiveDirectory* and *AzureAD*
+The *AzureAD* module can be installed by the command:
+```powershell
+Install-Module AzureAD
+```
+The *ActiveDirectory* module can be installed by enabling the *Active Directory lightweight Directory Services* in *Windows   Features* (*Control Panel* / *Programs and Features* / *Turn  Windows Features on or off*)
+
 ## Functions
 
 ### Get-ExchangeStatus
@@ -33,7 +41,9 @@ function Get-ExchangeStatus {
 ### Get-UserLicenseDetail
 Purpose: To get the licenses applied to a user
 
-Arguments: The function takes the user's principal name (
+Arguments: The function takes the user's principal name (user's email address)
+
+Process: We use the *Get-AzureADUser* cmdlet to get licence SKUs a user has, we then compare then use the *Get-AzureADSubscribedSku* cmdlet to compare the user's license SKUs against the all the licenses the organization has
 ```powershell
 function Get-UserLicenseDetail {
     param([string]$UserPrincipalName)
