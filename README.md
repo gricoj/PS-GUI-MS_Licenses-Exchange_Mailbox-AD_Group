@@ -61,9 +61,9 @@ Purpose: To get whether the user is in the *MDM_OnPremExchange* security group
 
 Arguments: The function takes the user's username
 
-Process: We use the *Get-ADGroupMember* cmdlet to get a list of all the users in the *MDM_OnPremExchange* group. We then check if the user is in that group.
+Process: We use the *Get-ADGroupMember* cmdlet to get a list of all the users in the *MDM_OnPremExchange* group. We then check if the user is in that group
 
-Output: Returns *$true* if the user is in the MDM_OnPremExchange* security group. Returns *$false* if the user is not in the *MDM_OnPremExchange* group.
+Output: Returns *$true* if the user is in the MDM_OnPremExchange* security group. Returns *$false* if the user is not in the *MDM_OnPremExchange* group
 ```powershell
 function In-OnPremGroup {
     param([string]$Username)
