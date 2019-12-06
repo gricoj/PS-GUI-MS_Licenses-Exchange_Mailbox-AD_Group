@@ -16,7 +16,7 @@ The GUI's purposes:
 
 [Functions](https://github.com/gricoj/PS-License-Intune-GUI#functions)
 
-[Contraints](https://github.com/gricoj/PS-License-Intune-GUI#contraints)
+[Constraints](https://github.com/gricoj/PS-License-Intune-GUI#constraints)
 
 
 ## Requirements
