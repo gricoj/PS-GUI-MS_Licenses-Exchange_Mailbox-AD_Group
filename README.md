@@ -11,6 +11,14 @@ The GUI's purposes:
 - To show the user's licenses
 - To add/remove a user from the *MDM_OnPremExchange* group
 
+### Table of Contents
+[Requirements](https://github.com/gricoj/PS-License-Intune-GUI#requirements)
+
+[Functions](https://github.com/gricoj/PS-License-Intune-GUI#functions)
+
+[Contraints](https://github.com/gricoj/PS-License-Intune-GUI#contraints)
+
+
 ## Requirements
 The GUI will require two PowerShell Modules: *ActiveDirectory* and *AzureAD*
 The *AzureAD* module can be installed by the command:
