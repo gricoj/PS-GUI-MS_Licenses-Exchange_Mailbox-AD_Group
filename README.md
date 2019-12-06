@@ -2,7 +2,7 @@
 
 In this enviorment we had Hybrid Exchange enviorment, users mailboxes where either on *Exchange Online* or *Exchange On-Premise*. We were actively migrating users from *Exchange On-Premise* to *Exchange Online* (Office 365)
 
-We also had a hybrid MDM enviorment, migrating users from Citrix XenMobile to Intune. The Hybrid Exchange enviorment meant that we had to have *Device Configuration Profiles* and *App Configuration Profiles* that would support both *Exchange Online* and *Exchange On-Premise* users. 
+We also had a hybrid MDM enviorment, migrating users from Citrix XenMobile to Microsoft Intune. The Hybrid Exchange enviorment meant that we had to have *Device Configuration Profiles* and *App Configuration Profiles* that would support both *Exchange Online* and *Exchange On-Premise* users. Additionally, users require a [license](https://docs.microsoft.com/en-us/intune/fundamentals/licenses) in order to access Intune.
 
 We approached this problem by creating a security group: *MDM_OnPremExchange*, we would apply *Exchange On-Premise* configuration profiles only to users who are part of the *MDM_OnPremExchange* group. Similarly, we would apply *Exchange Online* configuration profiles to all users excluding those who are part of the *MDM_OnPremExchange* group.
 
@@ -21,7 +21,7 @@ The *ActiveDirectory* module can be installed by enabling the *Active Directory 
 
 ## Functions
 
-### Get-ExchangeStatus
+#### Get-ExchangeStatus
 Purpose: To get whether a user's mailboxes is on *Exchange Online* or *Exchange On-Premise*
 
 Arguments: The function takes the user's username
@@ -38,7 +38,7 @@ function Get-ExchangeStatus {
     else { return "Error" }
 }
 ```
-### Get-UserLicenseDetail
+#### Get-UserLicenseDetail
 Purpose: To get the licenses applied to a user
 
 Arguments: The function takes the user's principal name (user's email address)
@@ -56,7 +56,7 @@ function Get-UserLicenseDetail {
     Return $LicenseName
 }
 ```
-### In-OnPremGroup
+#### In-OnPremGroup
 Purpose: To get whether the user is in the *MDM_OnPremExchange* security group
 
 Arguments: The function takes the user's username
@@ -73,3 +73,8 @@ function In-OnPremGroup {
     return $InGroup
 }
 ```
+## Constraints
+- A user should only be removed from the *MDM_OnPremExchange* group if
+    - The user's mailbox is on *Exchange Online* and the user is in the *MDM_OnPremExchange* group
+- A user should only be added to the *MDM_OnPremExchange* group if
+    - The user's mailbox is on *Exchange On Premise*, the user is not in the *MDM_OnPremExchange* group and the user has appropriate licenses
