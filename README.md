@@ -16,7 +16,7 @@ The GUI's purposes:
 
 [Functions](https://github.com/gricoj/PS-License-Intune-GUI#functions)
 
-[Constraints](https://github.com/gricoj/PS-License-Intune-GUI#constraints)
+[Conditions](https://github.com/gricoj/PS-License-Intune-GUI#conditions)
 
 
 ## Requirements
@@ -81,8 +81,13 @@ function In-OnPremGroup {
     return $InGroup
 }
 ```
-## Constraints
+## Conditions
 - A user should only be removed from the *MDM_OnPremExchange* group if
     - The user's mailbox is on *Exchange Online* and the user is in the *MDM_OnPremExchange* group
 - A user should only be added to the *MDM_OnPremExchange* group if
     - The user's mailbox is on *Exchange On Premise*, the user is not in the *MDM_OnPremExchange* group and the user has appropriate licenses
+
+## Using the GUI
+The command *Connect-AzureAD* must be executed before the PowerShell script is executed. We use the *Connect-AzureAD* cmdlet inorder to be able to use the other AzureAD cmdlets that get us the user's license details.
+
+[GUI](GUI.png)
