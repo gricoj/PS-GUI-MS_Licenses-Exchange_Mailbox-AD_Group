@@ -115,4 +115,4 @@ The only *special* behavior is the *Add/Remove from MDM_OnPremExchange* button:
     - The user's mailbox is on *Exchange On Premise*, the user has appropriate licenses and the user is not already in the *MDM_OnPremExchange* group
     
 ## Future Improvements
-- [ ] Remove the requirement to need to execute the *Connect-AzureAD* cmdlet, before executing the GUI script
+- [ ] Remove the requirement for the need to execute the *Connect-AzureAD* cmdlet, before executing the GUI script
