@@ -1,4 +1,4 @@
-# PowerShell GUI for Microsoft Licenses, Exchange Mailbox Location, and AD Group Membership
+# PowerShell GUI to view users' Microsoft Licenses, Exchange Mailbox Location, and AD Group Membership
 ## Description
 This GUI is used to vizualize a user's Exchange Mailbox Location (On Premise/Exchange Online), licenses a user is assigned, and their membership to a particular AD group.
 
