@@ -18,6 +18,8 @@ The GUI's purposes:
 
 [Conditions](https://github.com/gricoj/PS-License-Intune-GUI#conditions)
 
+[Using the GUI](https://github.com/gricoj/PS-License-Intune-GUI#conditions)
+
 
 ## Requirements
 The GUI will require two PowerShell Modules: *ActiveDirectory* and *AzureAD*
@@ -81,13 +83,27 @@ function In-OnPremGroup {
     return $InGroup
 }
 ```
-## Conditions
+
+## Using the GUI
+#### Prerequisites
+The command *Connect-AzureAD* must be executed before the PowerShell script is executed. We use the *Connect-AzureAD* cmdlet inorder to be able to use the other AzureAD cmdlets that get us the user's license details. The script should also be executed with an account that has administrative permissions in AD as the GUI calls the *Remove-ADGroupMember* and *Add-ADGroupMember* cmdlets.
+
+#### Interaction
+![GUI](GUI.png)
+
+You will need to enter the user's username in the field to the left of the *Search* button.
+
+All other fields are automatically populated when the *Search* button is clicked:
+- The *Exchange Status* field is populated with the result of the *Get-ExchangeStatus* function
+- The *License Detail* field is populated with the result of the *Get-UserLicenseDetail* function
+- The *In MDM_OnPremExchange* field is populated with the result of the *In-OnPremGroup* function
+The only *Special* behavior is *Add/Remove from MDM_OnPremExchange* button:
+
+###### MDM_OnPremExchange Membership Conditions
 - A user should only be removed from the *MDM_OnPremExchange* group if
     - The user's mailbox is on *Exchange Online* and the user is in the *MDM_OnPremExchange* group
 - A user should only be added to the *MDM_OnPremExchange* group if
-    - The user's mailbox is on *Exchange On Premise*, the user is not in the *MDM_OnPremExchange* group and the user has appropriate licenses
-
-## Using the GUI
-The command *Connect-AzureAD* must be executed before the PowerShell script is executed. We use the *Connect-AzureAD* cmdlet inorder to be able to use the other AzureAD cmdlets that get us the user's license details. The script should also be executed with an account that has administrative permissions in AD as the GUI calls the *Remove-ADGroupMember* and *Add-ADGroupMember* cmdlets.
-
-[GUI](GUI.png)
+    - The user's mailbox is on *Exchange On Premise*, the user has appropriate licenses and the user is not already in the *MDM_OnPremExchange* group
+    
+## Future Improvements
+- [ ] Remove the requirement to need to execute the *Connect-AuzreAD* cmdlet, before executing the GUI script
