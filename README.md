@@ -11,8 +11,6 @@ The GUI is meant to simplify the process and removing the need to manually inter
 
 [Functions](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#functions)
 
-[Conditions](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#conditions)
-
 [Using the GUI](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#using-the-gui)
 
 [Future Improvements](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#future-improvements)
