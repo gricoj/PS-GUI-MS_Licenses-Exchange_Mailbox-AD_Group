@@ -5,17 +5,17 @@ This GUI is used to vizualize a user's Exchange Mailbox Location (On Premise/Exc
 The GUI is meant to simplify the process and removing the need to manually interact with Azure Admin Portal and Active Directory
 
 ## Table of Contents
-[Background](https://github.com/gricoj/PS-License-Intune-GUI#background)
+[Background](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#background)
 
-[Requirements](https://github.com/gricoj/PS-License-Intune-GUI#requirements)
+[Requirements](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#requirements)
 
-[Functions](https://github.com/gricoj/PS-License-Intune-GUI#functions)
+[Functions](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#functions)
 
-[Conditions](https://github.com/gricoj/PS-License-Intune-GUI#conditions)
+[Conditions](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#conditions)
 
-[Using the GUI](https://github.com/gricoj/PS-License-Intune-GUI#using-the-gui)
+[Using the GUI](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#using-the-gui)
 
-[Future Improvements](https://github.com/gricoj/PS-License-Intune-GUI#future-improvements)
+[Future Improvements](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#future-improvements)
 
 ## Background
 In this enviorment we had Hybrid Exchange enviorment, users mailboxes where either on *Exchange Online* or *Exchange On-Premise*. We were actively migrating users from *Exchange On-Premise* to *Exchange Online* (Office 365)
