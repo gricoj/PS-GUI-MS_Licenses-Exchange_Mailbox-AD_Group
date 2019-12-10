@@ -42,7 +42,7 @@ The *ActiveDirectory* module can be installed by enabling the *Active Directory 
 #### Get-ExchangeStatus
 Purpose: To get whether a user's mailboxes is on *Exchange Online* or *Exchange On-Premise*
 
-Arguments: The function takes the user's username
+Parameter: The function takes the user's username
 
 Process: We use the *Get-ADUser* cmdlet to get the user's *msExchRecipmientTypeDetails*, depending on that value we determine whether the user's mailbox is on *Exchange Online* or *Exchange On-Premise*
 
@@ -59,7 +59,7 @@ function Get-ExchangeStatus {
 #### Get-UserLicenseDetail
 Purpose: To get the licenses applied to a user
 
-Arguments: The function takes the user's principal name (user's email address)
+Parameter: The function takes the user's principal name (user's email address)
 
 Process: We use the *Get-AzureADUser* cmdlet to get the licence SKUs a user has. We then compare license SKUs to the licenses the organization has using the *Get-AzureADSubscribedSku* cmdlet to get the name of the license. We store the names of the licenses the user has in an array.
 Output: We return the array of license names
@@ -77,11 +77,11 @@ function Get-UserLicenseDetail {
 #### In-OnPremGroup
 Purpose: To get whether the user is in the *MDM_OnPremExchange* security group
 
-Arguments: The function takes the user's username
+Parameter: The function takes the user's username
 
 Process: We use the *Get-ADGroupMember* cmdlet to get a list of all the users in the *MDM_OnPremExchange* group. We then check if the user is in that group
 
-Output: Returns *$true* if the user is in the MDM_OnPremExchange* security group. Returns *$false* if the user is not in the *MDM_OnPremExchange* group
+Output: Returns *$true* if the user is in the *MDM_OnPremExchange* security group. Returns *$false* if the user is not in the *MDM_OnPremExchange* group
 ```powershell
 function In-OnPremGroup {
     param([string]$Username)
