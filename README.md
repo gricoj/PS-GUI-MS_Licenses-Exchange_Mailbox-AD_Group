@@ -97,7 +97,7 @@ function In-OnPremGroup {
 The command *Connect-AzureAD* must be executed before the PowerShell script is executed. We use the *Connect-AzureAD* cmdlet inorder to be able to use the other AzureAD cmdlets that get us the user's license details. The script should also be executed with an account that has administrative permissions in AD as the GUI calls the *Remove-ADGroupMember* and *Add-ADGroupMember* cmdlets.
 
 #### Interaction
-![GUI](https://github.com/gricoj/PS-License-Intune-GUI/blob/master/GUI.png)
+![GUI](gui.png)
 
 You will need to enter the user's username in the field to the left of the *Search* button.
 
