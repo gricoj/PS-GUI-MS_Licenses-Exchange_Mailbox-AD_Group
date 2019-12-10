@@ -1,17 +1,12 @@
-# PowerShell GUI for Licenses and Intune
+# PowerShell GUI for Microsoft Licenses, Exchange Mailbox Location, and Intune
+## Description
+This GUI is used to vizualize a user's Exchange Mailbox Location (On Premise/Exchange Online), licenses a user is assigned, and their membership to a particular AD group.
 
-In this enviorment we had Hybrid Exchange enviorment, users mailboxes where either on *Exchange Online* or *Exchange On-Premise*. We were actively migrating users from *Exchange On-Premise* to *Exchange Online* (Office 365)
-
-We also had a hybrid MDM enviorment, migrating users from Citrix XenMobile to Microsoft Intune. The Hybrid Exchange enviorment meant that we had to have *Device Configuration Profiles* and *App Configuration Profiles* that would support both *Exchange Online* and *Exchange On-Premise* users. Additionally, users require a [license](https://docs.microsoft.com/en-us/intune/fundamentals/licenses) in order to access Intune.
-
-We approached this problem by creating a security group: *MDM_OnPremExchange*, we would apply *Exchange On-Premise* configuration profiles only to users who are part of the *MDM_OnPremExchange* group. Similarly, we would apply *Exchange Online* configuration profiles to all users excluding those who are part of the *MDM_OnPremExchange* group.
-
-The GUI's purposes:
-- To show whether the user's maibox is on *Exchange Online*  or *Exchange On-Premise*
-- To show the user's licenses
-- To add/remove a user from the *MDM_OnPremExchange* group
+The GUI is meant to simplify the process and removing the need to manually interact with Azure Admin Portal and Active Directory
 
 ## Table of Contents
+[Background](https://github.com/gricoj/PS-License-Intune-GUI#background)
+
 [Requirements](https://github.com/gricoj/PS-License-Intune-GUI#requirements)
 
 [Functions](https://github.com/gricoj/PS-License-Intune-GUI#functions)
@@ -22,6 +17,17 @@ The GUI's purposes:
 
 [Future Improvements](https://github.com/gricoj/PS-License-Intune-GUI#future-improvements)
 
+## Background
+In this enviorment we had Hybrid Exchange enviorment, users mailboxes where either on *Exchange Online* or *Exchange On-Premise*. We were actively migrating users from *Exchange On-Premise* to *Exchange Online* (Office 365)
+
+We also had a hybrid MDM enviorment, migrating users from Citrix XenMobile to Microsoft Intune. The Hybrid Exchange enviorment meant that we had to have *Device Configuration Profiles* and *App Configuration Profiles* that would support both *Exchange Online* and *Exchange On-Premise* users. Additionally, users require a [license](https://docs.microsoft.com/en-us/intune/fundamentals/licenses) in order to access Intune.
+
+We approached this problem by creating a security group: *MDM_OnPremExchange*, we would apply *Exchange On-Premise* configuration profiles only to users who are part of the *MDM_OnPremExchange* group. Similarly, we would apply *Exchange Online* configuration profiles to all users excluding those who are part of the *MDM_OnPremExchange* group.
+
+The GUI's purposes:
+- To show whether the user's maibox is on *Exchange Online*  or *Exchange On-Premise*
+- To show the user's licenses
+- To add/remove a user from the *MDM_OnPremExchange* group
 
 ## Requirements
 The GUI will require two PowerShell Modules: *ActiveDirectory* and *AzureAD*
