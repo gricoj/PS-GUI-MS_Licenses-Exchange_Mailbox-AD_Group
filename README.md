@@ -90,4 +90,4 @@ function In-OnPremGroup {
 ## Using the GUI
 The command *Connect-AzureAD* must be executed before the PowerShell script is executed. We use the *Connect-AzureAD* cmdlet inorder to be able to use the other AzureAD cmdlets that get us the user's license details.
 
-[GUI](https://raw.githubusercontent.com/gricoj/PS-License-Intune-GUI/master/GUI.png?token=ACX6GBMIDPWJ2JBCUVHGKYK557BUA)
+[GUI](https://github.com/gricoj/PS-License-Intune-GUI/blob/master/GUI.png)
