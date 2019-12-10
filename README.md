@@ -11,7 +11,7 @@ The GUI's purposes:
 - To show the user's licenses
 - To add/remove a user from the *MDM_OnPremExchange* group
 
-### Table of Contents
+## Table of Contents
 [Requirements](https://github.com/gricoj/PS-License-Intune-GUI#requirements)
 
 [Functions](https://github.com/gricoj/PS-License-Intune-GUI#functions)
@@ -99,6 +99,7 @@ All other fields are automatically populated when the *Search* button is clicked
 - The *Exchange Status* field is populated with the result of the *Get-ExchangeStatus* function
 - The *License Detail* field is populated with the result of the *Get-UserLicenseDetail* function
 - The *In MDM_OnPremExchange* field is populated with the result of the *In-OnPremGroup* function
+
 The only *Special* behavior is *Add/Remove from MDM_OnPremExchange* button:
 
 ###### MDM_OnPremExchange Membership Conditions
