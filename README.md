@@ -91,8 +91,6 @@ function In-OnPremGroup {
 ```
 
 ## Using the GUI
-#### Prerequisites
-The command *Connect-AzureAD* must be executed before the PowerShell script is executed. We use the *Connect-AzureAD* cmdlet inorder to be able to use the other AzureAD cmdlets that get us the user's license details. The script should also be executed with an account that has administrative permissions in AD as the GUI calls the *Remove-ADGroupMember* and *Add-ADGroupMember* cmdlets.
 
 #### Interaction
 ![GUI](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/GUI.png)
@@ -113,4 +111,4 @@ The only *special* behavior is the *Add/Remove from MDM_OnPremExchange* button:
     - The user's mailbox is on *Exchange On Premise*, the user has appropriate licenses and the user is not already in the *MDM_OnPremExchange* group
     
 ## Future Improvements
-- [ ] Remove the requirement for the need to execute the *Connect-AzureAD* cmdlet, before executing the GUI script
+- [x] ~Remove the requirement for the need to execute the *Connect-AzureAD* cmdlet, before executing the GUI script~
