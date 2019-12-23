@@ -4,6 +4,8 @@ This GUI is used to vizualize a user's Exchange Mailbox Location (On Premise/Exc
 
 The GUI is meant to simplify the process and removing the need to manually interact with Azure Admin Portal and Active Directory
 
+I used the online PowerShell GUI tool [POSHGUI](https://poshgui.com/) to design the interface of the GUI
+
 ## Table of Contents
 [Background](https://github.com/gricoj/PS-GUI-MS_Licenses-Exchange_Mailbox-AD_Group/blob/master/README.md#background)
 
