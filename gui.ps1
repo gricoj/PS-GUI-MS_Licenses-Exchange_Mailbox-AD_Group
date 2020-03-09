@@ -146,7 +146,7 @@ $Search_Button.Add_Click({
 $AddRemove_Button.Add_Click({
     if($AddRemove_Button.text -eq "Remove"){Remove-ADGroupMember -Identity MDM_OnPremExchange -Members $Search_Box.Text}
     elseif($AddRemove_Button.text -eq "Add"){Add-ADGroupMember -Identity MDM_OnPremExchange -Members $Search_Box.Text}
-    Start-Sleep -s 3
+    Start-Sleep -s 10
     $InADGroup_Box.Text = In-OnPremGroup -UserPrincipalName $Search_Box.Text
     $AddRemove_Button.visible = $false
 })   
